@@ -48,6 +48,7 @@ class EmployeeController extends Controller
         $create = Employee::create($request->all());
        
         return response()->json(['status' => 'success','msg'=>'Employee created successfully']);
+        //return response()->json($create);
     }
 
     /**
@@ -58,7 +59,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        return Employee::find($id);
     }
 
     /**
@@ -69,7 +70,7 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+         return Employee::find($id);
     }
 
     /**
@@ -81,7 +82,21 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required',
+      ]);
+
+      $employee = Employee::find($id);
+      if($employee->count())
+      {
+        $employee->update($request->all());
+        return response()->json(['status'=>'success','msg'=>'Employee updated successfully']);
+      } 
+      else 
+      {
+        return response()->json(['status'=>'error','msg'=>'error in updating employee']);
+      }
     }
 
     /**
@@ -92,6 +107,15 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+        if($employee->count())
+        {
+          $employee->delete();
+          return response()->json(['status'=>'success','msg'=>'Employee deleted successfully']);
+        } 
+        else 
+        {
+          return response()->json(['statur'=>'error','msg'=>'error in deleting employee']);
+        }    
     }
 }

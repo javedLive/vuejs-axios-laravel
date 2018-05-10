@@ -46277,7 +46277,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h3", [_vm._v(" Add new post")]),
+    _c("h3", [_vm._v(" Add new Employee")]),
     _vm._v(" "),
     _c(
       "form",
@@ -46303,7 +46303,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "text", required: "", placeholder: "" },
+            attrs: { type: "text", required: "" },
             domProps: { value: _vm.employee.name },
             on: {
               input: function($event) {
@@ -46329,7 +46329,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "email", required: "", placeholder: "" },
+            attrs: { type: "email", required: "" },
             domProps: { value: _vm.employee.email },
             on: {
               input: function($event) {
@@ -46375,11 +46375,12 @@ if (false) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(66)
 /* template */
-var __vue_template__ = null
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -46398,6 +46399,22 @@ var Component = normalizeComponent(
 )
 Component.options.__file = "resources\\assets\\js\\components\\EditEmployee.vue"
 
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7945fc62", Component.options)
+  } else {
+    hotAPI.reload("data-v-7945fc62", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
 module.exports = Component.exports
 
 
@@ -46405,11 +46422,12 @@ module.exports = Component.exports
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = null
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -46428,6 +46446,22 @@ var Component = normalizeComponent(
 )
 Component.options.__file = "resources\\assets\\js\\components\\DeleteEmployee.vue"
 
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d5b1d7a0", Component.options)
+  } else {
+    hotAPI.reload("data-v-d5b1d7a0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
 module.exports = Component.exports
 
 
@@ -46435,11 +46469,12 @@ module.exports = Component.exports
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(64)
 /* template */
-var __vue_template__ = null
+var __vue_template__ = __webpack_require__(65)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -46458,6 +46493,22 @@ var Component = normalizeComponent(
 )
 Component.options.__file = "resources\\assets\\js\\components\\Employee.vue"
 
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e4b7f3b6", Component.options)
+  } else {
+    hotAPI.reload("data-v-e4b7f3b6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
 module.exports = Component.exports
 
 
@@ -46466,6 +46517,339 @@ module.exports = Component.exports
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return { employee: { name: '', email: '' } };
+  },
+
+  created: function created() {
+    var _this = this;
+
+    var uri = 'http://localhost/crud/public/employees/' + this.$route.params.id;
+    Axios.get(uri).then(function (response) {
+      _this.employee = response.data;
+    });
+  }
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("h3", [_vm._v(" " + _vm._s(_vm.employee.name))]),
+      _vm._v(" "),
+      _c("strong", [_vm._v("Email :")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("\n   " + _vm._s(_vm.employee.email) + "\n ")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("span", { staticClass: "glyphicon glyphicon-arrow-left" }),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: "/crud/public/" } }, [
+        _vm._v(" Back to Home")
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e4b7f3b6", module.exports)
+  }
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return { employee: { name: '', email: '' } };
+  },
+  created: function created() {
+    var _this = this;
+
+    var uri = 'http://localhost/crud/public/employees/' + this.$route.params.id + '/edit';
+    Axios.get(uri).then(function (response) {
+      _this.employee = response.data;
+    });
+  },
+  methods: {
+    updatePost: function updatePost() {
+      var _this2 = this;
+
+      var uri = 'http://localhost/crud/public/employees/' + this.$route.params.id;
+      Axios.patch(uri, this.employee).then(function (response) {
+        _this2.$router.push({ name: 'Employees' });
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h3", [_vm._v("Update employee")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.updatePost($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "edit-name" } }, [_vm._v("Name")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.employee.name,
+                expression: "employee.name"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { id: "edit-name", required: "" },
+            domProps: { value: _vm.employee.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.employee, "name", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "edit-email" } }, [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.employee.email,
+                expression: "employee.email"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "email", required: "" },
+            domProps: { value: _vm.employee.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.employee, "email", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-xs btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Update Employee")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-xs btn-warning",
+            attrs: { to: "/crud/public/" }
+          },
+          [_vm._v("Cancel")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7945fc62", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return { employee: { name: '', email: '' } };
+  },
+  created: function created() {
+    var _this = this;
+
+    var uri = 'http://localhost/crud/public/employees/' + this.$route.params.id + '/edit';
+    Axios.get(uri).then(function (response) {
+      _this.employee = response.data;
+    });
+  },
+  methods: {
+    deleteEmployee: function deleteEmployee() {
+      var _this2 = this;
+
+      var uri = 'http://localhost/crud/public/employees/' + this.$route.params.id;
+      Axios.delete(uri, this.employee).then(function (response) {
+        _this2.$router.push({ name: 'Employees' });
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h3", [_vm._v("Delete employee " + _vm._s(_vm.employee.name))]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.deleteEmployee($event)
+          }
+        }
+      },
+      [
+        _c("p", [_vm._v("The action cannot be undone")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-xs btn-danger",
+            attrs: { type: "submit", name: "button" }
+          },
+          [_vm._v("Delete")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-xs btn-primary",
+            attrs: { to: "/crud/public/" }
+          },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d5b1d7a0", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
